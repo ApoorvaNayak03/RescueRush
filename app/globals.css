@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +12,29 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+/* Add this CSS to your stylesheet */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(270deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,5 +50,151 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.about-section {
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  /* background: linear-gradient(to right, #ebeff8, #c3d2ff); */
+}
+/* Image */
+.about-image-content {
+  width: 50%;
+  max-width: 100%;
+  text-align: center;
+}
+.about-image1 {
+  width: 80%;
+  height: auto;
+}
+/* Text */
+.about-text-content {
+  width: 50%;
+}
+.about-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+.about-title > span {
+  position: relative;
+}
+.about-title span::before {
+  content: '';
+  position: absolute;
+  width: 75%;
+  height: 4px;
+  background-color: #9D2553;
+  border-radius: 8px;
+  left: 0;
+  bottom: -12px;
+}
+.about-description {
+  margin: 32px 0;
+  color: #4d4b4b;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  letter-spacing: .7px;
+  line-height: 1.7rem;
+}
+.about-text-title {
+  margin: 0 0 24px 0;
+  color: #4d4b4b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: .7px;
+}
+/* Steps */
+.about-text-step {
+  margin: 16px 0;
+}
+.about-text-sTitle {
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: .7px;
+}
+.about-text-description {
+  margin: 8px 24px;
+  color: #4d4b4b;
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: .7px;
+  line-height: 1.6rem;
+}
+.fa-icon {
+  color: #9D2553;
+}
+/* Responsive */
+@media screen and (max-width: 1000px) {
+  .about-section {
+      display: block;
+  }
+  .about-image-content {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 0 32px 0;
+  }
+  .about-image1 {
+      width: 100%;
+      height: 100%;
+  }
+  .about-text-content {
+      width: 100%;
+  }
+}
+
+.list-tick {
+  list-style-type: none; /* Remove default list style */
+  padding-left: 0; /* Remove left padding */
+  font-family: 'Rubik', sans-serif;
+}
+
+.list-item {
+  background-color: #f5f5f5; /* Slightly lighter than #ECF2FF and #cdd8f9 */
+  padding: 20px; /* Increased padding inside boxes */
+  border-radius: 12px; /* More rounded corners for boxes */
+  margin-bottom: 20px; /* Increased spacing between boxes */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for transform, shadow, and background-color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.list-item:hover {
+  background-color: #771b3e;
+  transform: translateY(-15px); 
+  transform: translateX(-15px); 
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+.list-item:hover::before {
+  color: white; /* Change tick mark color to white on hover */
+}
+
+.list-item::before {
+  content: "\2713"; /* Unicode character for tick (✓) */
+  color: #8b4513; /* Brown color for tick mark */
+  font-size: 1.5em; /* Adjust size as needed */
+  margin-right: 15px;
+  transition: color 0.3s ease; /* Smooth transition for tick mark color */
+}
+
+.about-image1 {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
